@@ -1,44 +1,47 @@
-# 🏥 Heart Disease Prediction System
-> **A Machine Learning Web Application to predict heart health using patient data.**
+# 🏥 Heart Disease Clinical Prediction Case Study
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red.svg)
-![Machine Learning](https://img.shields.io/badge/ML-Random%20Forest-green.svg)
+## 📋 Table of Contents
+1. [Project Overview](#project-overview)
+2. [Data Preprocessing & Cleaning](#data-preprocessing)
+3. [Exploratory Data Analysis (EDA)](#eda)
+4. [Feature Engineering](#feature-engineering)
+5. [Model Architecture](#model-architecture)
 
-## 📌 Project Overview
-This project is a healthcare solution that helps users check for potential heart disease. By analyzing medical inputs like Age, Cholesterol, and Blood Pressure, the Machine Learning model provides an instant prediction.
+---
 
-## 🛠️ Tech Stack
-* **Language:** Python 🐍
-* **Framework:** Streamlit (For the Web Interface)
-* **Libraries:** Pandas, NumPy, Scikit-Learn
-* **Deployment:** Render.com
+## 🔍 1. Project Overview
+This project aims to predict heart disease using 13 clinical features. The goal was to build a robust pipeline following OOPs principles and industry-standard documentation.
 
-## 🚀 Key Features
-- **OOPs Implementation:** The entire logic is built using Python Classes and Objects for better code structure.
-- **ML Pipeline:** Includes automated data scaling and model training.
-- **User-Friendly UI:** Simple form-based interface for easy data entry.
-- **Instant Results:** Fast and accurate predictions based on a trained Random Forest model.
+## ⚙️ 2. Data Preprocessing
+- **Handling Missing Values:** Checked for nulls (Found 0 nulls in this dataset).
+- **Outlier Detection:** Used Boxplots to identify extreme values in 'Cholesterol' and 'Resting BP'.
+- **Data Scaling:** Applied `StandardScaler` to ensure all features (like age vs cholesterol) are on the same scale.
 
-## 📊 Dataset Information
-The model is trained on 13 medical attributes:
-1. Age 2. Sex 3. Chest Pain Type 4. Resting BP 5. Cholesterol 6. Fasting Blood Sugar 7. Resting ECG 8. Max Heart Rate 9. Exercise Angina 10. ST Depression 11. Slope 12. Number of Major Vessels 13. Thal
+## 📊 3. Exploratory Data Analysis (EDA)
+In this phase, we analyzed the hidden patterns in the heart clinical data.
 
-## 📈 Model Performance
-- **Algorithm:** Random Forest Classifier
-- **Preprocessing:** Standard Scaling (to normalize medical data)
-- **Interface:** Interactive Streamlit Dashboard
-- **Result:** Provides instant 'Healthy' or 'Risk' status based on input parameters.
+### A. Target Distribution
+We checked if the dataset is balanced.
+> ![Target Distribution](./distribution.png)  
+*Insight: The dataset has a healthy balance of disease vs non-disease cases.*
 
-## 🛠️ Project Methodology (OOPs)
-Following professional coding standards, the project is built using:
-- **Modular Classes:** Separate logic for model training and prediction.
-- **Data Pipeline:** Seamless flow from raw CSV data to scaled feature arrays.
-- **Exception Handling:** Basic logging and error management to ensure smooth user experience.
+### B. Correlation Analysis
+We used a Heatmap to see which medical factors affect the heart the most.
+> ![Correlation Heatmap](./heatmap.png)  
+*Insight: Features like 'cp' (chest pain) and 'thalach' (max heart rate) show a strong relationship with the target.*
 
-## 🚀 Future Enhancements
-- [ ] Integration of real-time patient monitoring data.
-- [ ] Adding more Classification algorithms (like XGBoost or SVM) for comparison.
-- [ ] Implementing a Cloud Database to store history.
+## 🛠️ 4. Feature Engineering
+- **Categorical Encoding:** Converted categorical variables into numerical format using One-Hot Encoding where necessary.
+- **Feature Selection:** Analyzed feature importance using the Random Forest 'feature_importances_' attribute.
+- **Pipeline Integration:** Bundled the scaling and model steps into a single `sklearn.pipeline.Pipeline` object for cleaner code.
 
-Developed by Syeda Nazneen
+
+
+## 🤖 5. Model Architecture (OOPs Based)
+The project is structured using Python Classes:
+- `HeartPredictor` Class: Handles model initialization and training.
+- `DataTransformation` Logic: Embedded within the class to ensure data consistency during prediction.
+
+---
+**Project Status:** ✅ Completed  
+**Deadline:** 22nd January 2026
